@@ -1,15 +1,15 @@
 const form = document.getElementById('form')
 let linhas = ''
 
-let listaNome = []
+let listaContato = []
 
 form.addEventListener('submit', function(e){
     e.preventDefault();
     const nome = document.getElementById('nome')
     const numero = document.getElementById('numero')
 
-    if(listaNome.includes(nome.value)){
-        alert("O nome digitado já foi registrado")
+    if(listaContato.includes(nome.value) || listaContato.includes(numero.value)){
+        alert("O nome ou número digitado já foi registrado")
     } else {
         let linha = "<tr>"
         linha += `<td>${nome.value}</td>`
@@ -17,7 +17,7 @@ form.addEventListener('submit', function(e){
         linha += "</tr>"
     
         linhas += linha
-        listaNome += linhas
+        listaContato += linhas
     
         const tabela = document.querySelector('tbody')
         tabela.innerHTML = linhas
